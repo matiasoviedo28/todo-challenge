@@ -1,0 +1,9 @@
+Django
+djangorestframework
+gunicorn
+psycopg2
+django-filter
+pytest
+pytest-django
+
+

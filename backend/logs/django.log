@@ -1,0 +1,135 @@
+WARNING 2025-02-25 04:24:35,409 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:24:35,499 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 04:24:35,544 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 04:24:35,555 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 04:24:35,566 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 04:24:35,576 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 04:24:35,587 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 04:24:35,615 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 04:24:35,660 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 04:24:35,674 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 04:24:35,688 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 04:24:35,701 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 04:24:45,444 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:24:47,054 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:28:33,347 log Bad Request: /api/tareas/
+WARNING 2025-02-25 04:28:55,982 log Bad Request: /api/tareas/
+WARNING 2025-02-25 04:29:31,523 log Bad Request: /api/tareas/
+WARNING 2025-02-25 04:29:33,946 log Bad Request: /api/tareas/
+ERROR 2025-02-25 04:32:46,680 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+WARNING 2025-02-25 04:33:02,249 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:33:02,327 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 04:33:02,381 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 04:33:02,395 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 04:33:02,409 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 04:33:02,423 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 04:33:02,438 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 04:33:02,452 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 04:33:02,498 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 04:33:02,512 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 04:33:02,526 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 04:33:02,539 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 04:35:54,715 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:35:54,797 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 04:35:54,846 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 04:35:54,860 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 04:35:54,874 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 04:35:54,888 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 04:35:54,902 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 04:35:54,917 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 04:35:54,960 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 04:35:54,979 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 04:35:54,993 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 04:35:55,007 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 04:36:13,228 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:36:13,302 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 04:36:13,351 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 04:36:13,365 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 04:36:13,378 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 04:36:13,392 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 04:36:13,406 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 04:36:13,420 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 04:36:13,461 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 04:36:13,482 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 04:36:13,496 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 04:36:13,512 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 04:36:14,338 log Unauthorized: /api/
+WARNING 2025-02-25 04:36:14,412 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 04:36:14,466 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 04:36:14,479 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 04:36:14,493 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 04:36:14,521 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 04:36:14,535 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 04:36:14,548 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 04:36:14,584 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 04:36:14,598 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 04:36:14,612 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 04:36:14,637 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 04:36:16,080 log Unauthorized: /api/
+WARNING 2025-02-25 04:36:16,158 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 04:36:16,206 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 04:36:16,220 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 04:36:16,234 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 04:36:16,248 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 04:36:16,261 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 04:36:16,275 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 04:36:16,316 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 04:36:16,336 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 04:36:16,350 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 04:36:16,366 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 04:36:19,946 log Unauthorized: /api/
+WARNING 2025-02-25 04:36:21,136 log Unauthorized: /api/
+WARNING 2025-02-25 04:36:21,212 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 04:36:21,260 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 04:36:21,274 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 04:36:21,287 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 04:36:21,301 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 04:36:21,315 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 04:36:21,329 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 04:36:21,373 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 04:36:21,391 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 04:36:21,405 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 04:36:21,419 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 04:39:45,634 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:40:23,218 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:40:32,548 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:41:15,820 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:41:18,805 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 04:41:28,286 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 05:01:34,307 log Not Found: /api/rest/
+WARNING 2025-02-25 05:01:34,320 log Not Found: /api/rest
+WARNING 2025-02-25 05:01:34,480 log Not Found: /favicon.ico
+WARNING 2025-02-25 05:03:00,681 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 05:17:55,023 log Unauthorized: /api/tareas/
+WARNING 2025-02-25 05:17:55,110 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-02-25 05:17:55,153 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-02-25 05:17:55,167 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-02-25 05:17:55,181 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-02-25 05:17:55,195 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-02-25 05:17:55,209 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-02-25 05:17:55,227 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-02-25 05:17:55,271 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-02-25 05:17:55,285 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-02-25 05:17:55,299 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-02-25 05:17:55,313 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-02-25 05:28:31,493 log Bad Request: /api/tareas/
+WARNING 2025-02-25 05:28:36,453 log Bad Request: /api/tareas/

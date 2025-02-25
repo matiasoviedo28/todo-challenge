@@ -1,37 +1,146 @@
-# Invera ToDo-List Challenge (Python/Django Jr-SSr)
+# 📝 Todo List API
 
-El propósito de esta prueba es conocer tu capacidad para crear una pequeña aplicación funcional en un límite de tiempo. A continuación, encontrarás las funciones, los requisitos y los puntos clave que debés tener en cuenta durante el desarrollo.
+Esta es una API REST para la gestión de tareas, construida con **Django Rest Framework (DRF)** y **PostgreSQL**, completamente dockerizada para facilitar su despliegue.  
 
-## Qué queremos que hagas:
+🚀 Puedes probar la API de dos maneras:
+1. **Clonando el repositorio y ejecutándola en local con Docker** 🐳  
+2. **Consumiéndola directamente desde nuestro servidor en línea** (recomendado) 🌍  
 
-- El Challenge consiste en crear una aplicación web sencilla que permita a los usuarios crear y mantener una lista de tareas.
-- La entrega del resultado será en un nuevo fork de este repo y deberás hacer una pequeña demo del funcionamiento y desarrollo del proyecto ante un super comité de las más grandes mentes maestras de Invera, o a un par de devs, lo que sea más fácil de conseguir.
-- Podes contactarnos en caso que tengas alguna consulta.
+---
 
-## Objetivos:
+## 🛠 **Tecnologías Utilizadas**
+- **Python 3.12** 🐍
+- **Django 5.6.1 + Django Rest Framework (DRF)** 🛠
+- **PostgreSQL 15.12** como base de datos 🗄
+- **Docker + Docker Compose** para despliegue 🚢
+- **pytest** para pruebas automatizadas ✅
+- **logging** para registro de eventos 📜
+- **django-filter** para filtrado de tareas 🔍
+- **Token Authentication** para seguridad 🔑
 
-El usuario de la aplicación tiene que ser capaz de:
+---
 
-- Autenticarse
-- Crear una tarea
-- Eliminar una tarea
-- Marcar tareas como completadas
-- Poder ver una lista de todas las tareas existentes
-- Filtrar/buscar tareas por fecha de creación y/o por el contenido de la misma
+## 📌 **1. Probar la API en Nuestro Servidor**
+Puedes realizar consultas a la API en nuestro servidor en línea:  
+🌍 **Base URL:** `http://201.251.222.200:25080/`
 
-## Qué evaluamos:
+🔐 **Token de acceso:** `90200710a15526cf84d00dd42247b464deba4eb5`
 
-- Desarrollo utilizando Python, Django. No es necesario crear un Front-End, pero sí es necesario tener una API que permita cumplir con los objetivos de arriba.
-- Uso de librerías y paquetes estandares que reduzcan la cantidad de código propio añadido.
-- Calidad y arquitectura de código. Facilidad de lectura y mantenimiento del código. Estándares seguidos.
-- [Bonus] Manejo de logs.
-- [Bonus] Creación de tests (unitarias y de integración)
-- [Bonus] Unificar la solución propuesta en una imagen de Docker por repositorio para poder ser ejecutada en cualquier ambiente (si aplica para full stack).
+### 🔹 **📌 Probar desde CMD en Windows** (recomendado)
+Puedes usar `curl` en **CMD o PowerShell** para interactuar con la API.  
 
-## Requerimientos de entrega:
+#### **1️⃣ Listar todas las tareas**
+Desde **CMD** en Windows:
+```cmd
+curl -X GET "http://201.251.222.200:25080/api/tareas/" -H "Authorization: Token 90200710a15526cf84d00dd42247b464deba4eb5"
+```
 
-- Hacer un fork del proyecto y pushearlo en github. Puede ser privado.
-- La solución debe correr correctamente.
-- El Readme debe contener todas las instrucciones para poder levantar la aplicación, en caso de ser necesario, y explicar cómo se usa.
-- Disponibilidad para realizar una pequeña demo del proyecto al finalizar el challenge.
-- Tiempo para la entrega: Aproximadamente 7 días.
+Desde **PowerShell**, usa comillas simples en la cabecera:
+```powershell
+curl -X GET "http://201.251.222.200:25080/api/tareas/" -H 'Authorization: Token 90200710a15526cf84d00dd42247b464deba4eb5'
+```
+
+#### **2️⃣ Crear una nueva tarea**
+```cmd
+curl -X POST "http://201.251.222.200:25080/api/tareas/" -H "Authorization: Token 90200710a15526cf84d00dd42247b464deba4eb5" -H "Content-Type: application/json" -d "{"titulo": "Nueva tarea", "descripcion": "Descripción de prueba", "completada": false}"
+```
+
+#### **3️⃣ Actualizar una tarea (marcar como completada)**
+```cmd
+curl -X PATCH "http://201.251.222.200:25080/api/tareas/1/" -H "Authorization: Token 90200710a15526cf84d00dd42247b464deba4eb5" -H "Content-Type: application/json" -d "{"completada": true}"
+```
+
+#### **4️⃣ Eliminar una tarea**
+```cmd
+curl -X DELETE "http://201.251.222.200:25080/api/tareas/1/" -H "Authorization: Token 90200710a15526cf84d00dd42247b464deba4eb5"
+```
+
+---
+
+## 📌 **2. Clonar y Ejecutar en Local con Docker**
+### 🔹 **Requisitos**
+- Tener **Docker y Docker Compose** instalados en tu máquina.
+
+### 🔹 **Pasos de instalación**
+1️⃣ **Clonar el repositorio**  
+```sh
+git clone https://github.com/matiasoviedo28/todo-challenge.git
+cd todo-challenge
+```
+
+2️⃣ **Levantar los contenedores con Docker**  
+```sh
+docker compose up -d
+```
+
+3️⃣ **Crear las migraciones y superusuario**  
+```sh
+docker compose run --rm web python manage.py migrate
+docker compose run --rm web python manage.py createsuperuser
+```
+
+4️⃣ **Probar la API en local**  
+Si ejecutaste todo correctamente, la API estará disponible en:  
+🌍 `http://localhost:25080/api/tareas/`
+
+Puedes probar los mismos comandos `curl`, pero apuntando a `localhost` en lugar de `201.251.222.200`.
+
+---
+
+## 🛠 **3. Pruebas Automáticas**
+Hemos implementado **tests automatizados con `pytest`** para verificar el correcto funcionamiento de la API.  
+Para ejecutar las pruebas:
+```sh
+docker compose run --rm web pytest
+```
+
+---
+
+## ✅ **4. Validaciones Implementadas**
+- **Para garantizar que la API sea segura y a prueba de errores, se han implementado las siguientes validaciones:**  
+
+### 1️⃣ Evitar Tareas Duplicadas
+- No se permite crear dos tareas con **el mismo título, descripción y estado (`completada`)**.
+- Si se intenta crear una tarea idéntica, la API devuelve:
+  ```json
+  { "detail": "Ya existe una tarea con estos mismos datos." }
+  ```
+
+### 2️⃣ Campos Obligatorios
+- El titulo y descripcion son obligatorios y no pueden estar vacíos.
+- Si un campo está vacío, la API devuelve:
+  ```json
+  { "titulo": ["El título no puede estar vacío."] }
+  ```
+
+### 3️⃣ Validación del Campo completada
+- Solo acepta true o false
+- Si se envía otro valor (ej. "si", 1, "false"), la API devuelve:
+  ```json
+  { "completada": ["El campo 'completada' debe ser True o False."] }
+  ```
+### 4️⃣ Errores Claros y Personalizados
+- Todos los errores devuelven mensajes explicativos para que el usuario entienda qué está mal en la petición.
+
+
+---
+
+## 🔐 **5. Seguridad y Consideraciones**
+- **El token de autenticación proporcionado es solo para pruebas.**  
+  Si deseas regenerar un token para otro usuario, ejecuta:  
+  ```sh
+  docker compose run --rm web python manage.py drf_create_token <nombre_de_usuario>
+  ```
+
+---
+
+---
+## 📂 **Documentación de Archivos**
+📄 **[Files.md](./files.md)** → Explicación detallada de cada archivo en el proyecto.
+
+---
+
+## 📩 **Contacto**
+Si tienes dudas o quieres colaborar, no dudes en contactarme. 🚀  
+
+**[Matías Oviedo](https://www.linkedin.com/in/matias-alberto-oviedo-gonzalez/)**

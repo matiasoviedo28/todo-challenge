@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { text-align: center; }
+        .container { max-width: 500px; margin: auto; }
+        input, button { width: 100%; padding: 10px; margin: 5px 0; }
+        .task { display: flex; justify-content: space-between; background: #f4f4f4; padding: 10px; margin: 5px 0; }
+        .completed { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de Tareas</h2>
+        <input type="text" id="taskTitle" placeholder="Título de la tarea">
+        <input type="text" id="taskDescription" placeholder="Descripción de la tarea">
+        <button onclick="addTask()">Agregar Tarea</button>
+        <div id="tasksList"></div>
+    </div>
+
+    <input type="text" id="tokenInput" placeholder="Ingresa tu Token aquí" oninput="updateToken()">
+<script>
+    let TOKEN = "";
+
+    function updateToken() {
+        TOKEN = document.getElementById("tokenInput").value.trim();
+        localStorage.setItem("userToken", TOKEN);
+        fetchTasks(); // Refrescar la lista con el nuevo token
+    }
+
+    // Recuperar el token guardado en el navegador
+    window.onload = function () {
+        TOKEN = localStorage.getItem("userToken") || "";
+        document.getElementById("tokenInput").value = TOKEN;
+        fetchTasks();
+    };
+</script>
+
+    <script>
+        const API_URL = "http://201.251.222.200:25080/api/tareas/";
+
+        async function fetchTasks() {
+            const response = await fetch(API_URL, {
+                headers: { "Authorization": `Token ${TOKEN}` }
+            });
+            const tasks = await response.json();
+            renderTasks(tasks);
+        }
+
+        function renderTasks(tasks) {
+            const tasksList = document.getElementById("tasksList");
+            tasksList.innerHTML = "";
+            tasks.forEach(task => {
+                const taskDiv = document.createElement("div");
+                taskDiv.classList.add("task");
+                if (task.completada) taskDiv.classList.add("completed");
+
+                taskDiv.innerHTML = `
+                    <span>${task.titulo} - ${task.descripcion}</span>
+                    <button onclick="toggleTask(${task.id}, ${task.completada})">
+                        ${task.completada ? "❌" : "✔️"}
+                    </button>
+                `;
+                tasksList.appendChild(taskDiv);
+            });
+        }
+
+        async function addTask() {
+            const titulo = document.getElementById("taskTitle").value.trim();
+            const descripcion = document.getElementById("taskDescription").value.trim();
+
+            if (!titulo || !descripcion) {
+                alert("El título y la descripción no pueden estar vacíos.");
+                return;
+            }
+
+            await fetch(API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Token ${TOKEN}`
+                },
+                body: JSON.stringify({ titulo, descripcion, completada: false })
+            });
+
+            document.getElementById("taskTitle").value = "";
+            document.getElementById("taskDescription").value = "";
+            fetchTasks();
+        }
+
+        async function toggleTask(id, completed) {
+            await fetch(`${API_URL}${id}/`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Token ${TOKEN}`
+                },
+                body: JSON.stringify({ completada: !completed })
+            });
+            fetchTasks();
+        }
+
+        window.onload = fetchTasks;
+    </script>
+</body>
+</html>
+
