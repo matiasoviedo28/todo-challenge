@@ -26,6 +26,14 @@ Puedes realizar consultas a la API en nuestro servidor en línea:
 
 🔐 **Token de acceso:** `90200710a15526cf84d00dd42247b464deba4eb5`
 
+o lo creamos desde el server con:
+
+```cmd
+curl -X POST "http://localhost:25080/api/token/" \
+     -d "username=root&password=ubuntu123"
+```
+
+
 ### 🔹 **📌 Probar desde CMD en Windows** (recomendado)
 Puedes usar `curl` en **CMD o PowerShell** para interactuar con la API.  
 
